@@ -1,9 +1,12 @@
+'use client';
 
+import InfiniteCrowsel from "@/components/InfiniteCrowsel";
+import { projects } from "@/data/projects";
 
 export default function Home() {
   return (
-    <main className="h-[300vh] w-full">
-      <h1 className="text-[16rem]">Hello Everyone</h1>
+    <main className="h-screen flex items-center w-full">
+      <InfiniteCrowsel projets={projects}/>
     </main>
   );
 }
