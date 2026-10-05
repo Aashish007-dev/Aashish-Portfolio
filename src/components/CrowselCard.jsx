@@ -3,8 +3,8 @@ import { useRef } from "react";
 import TextReveal from "./TextReveal";
 import gsap from "@/libs/gsap";
 
-const CARD_W = 300;
-const CARD_H = 380;
+const CARD_W = 400;
+const CARD_H = 520;
 const SCALE = 1.35;
 
 const CrowselCard = ({ project, onHoverStart, onHoverEnd }) => {
@@ -20,9 +20,16 @@ const CrowselCard = ({ project, onHoverStart, onHoverEnd }) => {
     gsap.to(cardRef.current, {
       width: CARD_W * SCALE,
       height: CARD_H * SCALE,
-      duration: 0.45,
+      duration: 0.4,
       ease: "power3.out",
     });
+
+    gsap.to(imageRef.current, {
+      scale: 1,
+      duration: 0.42,
+      ease: 'power3.out'
+    });
+
 
     numberRef.current?.play();
     titleRef.current?.play();
@@ -34,8 +41,14 @@ const CrowselCard = ({ project, onHoverStart, onHoverEnd }) => {
     gsap.to(cardRef.current, {
       width: CARD_W,
       height: CARD_H,
-      duration: 0.2,
+      duration: 0.17,
       ease: "power3.out",
+    });
+
+    gsap.to(imageRef.current, {
+      scale: 1.6,
+      duration: 0.19,
+      ease: 'power3.out'
     });
 
     numberRef.current?.reverse();
@@ -59,15 +72,15 @@ const CrowselCard = ({ project, onHoverStart, onHoverEnd }) => {
       {/* Title Panel */}
 
       <div
-        style={{ bottom: "calc(100% + 3rem)" }}
-        className="titlePanel absolute left-0 pointer-events-none flex flex-col gap-[1rem] "
+        style={{ bottom: "calc(100% + 1.5rem)" }}
+        className="titlePanel absolute left-0 pointer-events-none flex flex-col gap-[0.8rem] "
       >
-        <TextReveal ref={numberRef} trigger="manual" splitBy="chars">
-          <h3 className="text-[1rem] text-[#010101]">{project.number}</h3>
+        <TextReveal ref={numberRef} duration='0.25' trigger="manual" splitBy="chars">
+          <h3 className="text-[1.5rem] text-[#010101]">{project.number}</h3>
         </TextReveal>
 
-        <TextReveal ref={titleRef} trigger="manual" splitBy="chars">
-          <h3 className="text-[1rem] text-[#010101]">{project.title}</h3>
+        <TextReveal ref={titleRef} duration='0.25' trigger="manual" splitBy="chars">
+          <h3 className="text-[1.5rem] text-[#010101]">{project.title}</h3>
         </TextReveal>
       </div>
 
@@ -77,7 +90,7 @@ const CrowselCard = ({ project, onHoverStart, onHoverEnd }) => {
         <img
           style={{ transformOrigin: "center center", userSelect: "none" }}
           ref={imageRef}
-          className="h-full w-full object-cover"
+          className="h-full w-full object-cover scale-[1.6]"
           src={project.coverImage}
           alt={project.title}
         />

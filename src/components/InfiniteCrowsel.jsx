@@ -2,8 +2,8 @@ import { useEffect, useRef } from "react";
 import CrowselCard from "./CrowselCard";
 import gsap from "@/libs/gsap";
 
-const CARD_W = 300;
-const CARD_H = 380;
+const CARD_W = 400;
+const CARD_H = 520;
 const SCALE = 1.35;
 const CARD_GAP = 20;
 
@@ -18,7 +18,7 @@ const InfiniteCrowsel = ({ projets }) => {
   const tweenRef = useRef(null);
 
   useEffect(() => {
-    const signleWidth = projets.length * (CARD_H + CARD_GAP);
+    const signleWidth = projets.length * (CARD_W + CARD_GAP);
 
     tweenRef.current = gsap.to(trackRef.current, {
       x: -signleWidth,
@@ -32,7 +32,7 @@ const InfiniteCrowsel = ({ projets }) => {
 
   return (
     <div
-      style={{ padding: `${TRACK_H * 1.2}px 0 24px` }}
+      style={{ padding: `${TRACK_H * 0.3}px 0 24px` }}
       className="overflow-hidden"
     >
       <div
