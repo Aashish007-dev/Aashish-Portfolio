@@ -1,3 +1,4 @@
+import Navbar from "@/components/Navbar";
 import "./globals.css";
 import SmoothScroller from "@/components/SmoothScroller";
 import {Inter, JetBrains_Mono} from "next/font/google";
@@ -29,6 +30,7 @@ export default function RootLayout({ children }) {
     >
      
       <body suppressHydrationWarning className="min-h-full flex flex-col">
+        <Navbar />
         <SmoothScroller>
           {children}
         </SmoothScroller>

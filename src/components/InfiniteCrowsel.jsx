@@ -32,7 +32,7 @@ const InfiniteCrowsel = ({ projets }) => {
 
   return (
     <div
-      style={{ padding: `${TRACK_H * 0.3}px 0 24px` }}
+      style={{ padding: `${TRACK_H * 0.25}px 0 24px` }}
       className="overflow-hidden"
     >
       <div
